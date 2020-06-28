@@ -1,0 +1,889 @@
+<div class="view bg-white border rounded border-weight-white" style="padding-top: 70px;">
+    <p class="pl-3  font-weight-bold text-primary h5">Update your profile</p>
+    <nav ngbNav #nav="ngbNav" class="nav-tabs ">
+        <!-- PERSIONALITY INFORMATION start -->
+        <!-- Personalities view start-->
+        <ng-container ngbNavItem>
+            <a class="text-uppercase text-monospace font-weight-bold pl-5 pr-5 h5 " ngbNavLink>
+                Profile</a>
+            <ng-template ngbNavContent>
+                <!-- màn hình thông tin cá nhân -->
+                <div class="custom pr-5" *ngIf="!isEditProfileShown">
+                    <!-- <div class=" mt-5 ml-5  mr-5 font-weight-bold" style="font-size: 15px; color: #F57C00;">
+                        <i class="fas fa-user-tie"></i> PERSIONALITY INFORMATION
+                    
+                    </div> -->
+                    <div class="mt-3  pt-3  ml-5  mr-5  vnjobs-title  pb-2 pl-3 mb-3 text-primary font-weight-bold">
+
+                        <h5 class="font-weight-bold"> <i class="fas fa-user-tie mr-3"></i>PERSIONALITY INFORMATION
+                        </h5>
+                        <div class="d-flex justify-content-end">
+                            <span data-toogle="tooltip" title="Employer viewed your profile" class="mr-5 text-muted"
+                                style="font-size: 12px;"><i class="fa fa-eye mr-1" aria-hidden="true"></i>Viewed:
+                                <span class="ml-1  text-success">{{myStats.viewedEmployersCount}}
+                                </span></span>
+                            <span data-toogle="tooltip" title="Employer saved your profile" class=" mr-5 text-muted"
+                                style="font-size: 12px;"><i class="fa fa-save mr-1"></i>Saved:
+                                <span class="ml-1  text-danger">{{myStats.savedEmployersCount}}
+                                </span></span>
+                        </div>
+                        <!-- <span class=" mr-5 text-muted" style="font-size: 12px;">employer
+                            view your profile</span> -->
+
+                    </div>
+
+                    <mdb-card class="  mt-3 ml-5  mr-5 mb-5 bg-white ">
+                        <!-- <form class="mt-3 ml-5  mr-5 "> -->
+                        <div class="mt-3 ml-5  mr-5 profile-card-font   ">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold" for="address">
+                                                    Work Title:</label></div>
+                                            <!-- <input readonly type="text" class="form-control" id="address"
+                                        value="{{candidateProfile.address}}"> -->
+                                            <span
+                                                class="ml-3 span-text dark-grey-text font-weight-medium mr-3">{{candidateProfile.work_title}}</span>
+
+                                        </div>
+                                        <!-- <hr /> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-lg-12 col-sm-12 col-md-12 profile-text-content">
+                                    <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class=" text-muted font-weight-bold  " for="exampleInputEmail1">
+                                                    Name: </label>
+                                            </div>
+                                            <!-- <span><p class="text-primary">{{candidateProfile.name}}</p></span> -->
+                                            <span
+                                                class="ml-3 span-text dark-grey-text  font-weight-medium mr-3">{{candidateProfile.name}}</span>
+                                            <!-- <input readonly type="text" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" value="{{candidateProfile.name}}"> -->
+                                        </div>
+                                        <!-- <hr /> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold"
+                                                    for="exampleInputEmail1">Gender:</label>
+                                            </div>
+                                            <!-- <input readonly type="text" class="form-control" id="gender"
+                                        value="{{candidateProfile.gender}}"> -->
+                                            <span
+                                                class="ml-3 span-text dark-grey-text font-weight-medium mr-3">{{candidateProfile.gender}}</span>
+                                        </div>
+                                        <!-- <hr /> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold"
+                                                    for="exampleInputPassword1">Phone:</label>
+                                            </div>
+                                            <!-- <input readonly type="tel" class="form-control" id="phonenumber"
+                                        value="{{candidateProfile.phonenumber}}"> -->
+                                            <span
+                                                class="ml-3 span-text dark-grey-text font-weight-medium mr-3">{{candidateProfile.phonenumber}}</span>
+                                        </div>
+                                        <!-- <hr /> -->
+                                    </div>
+                                </div>
+                                <!-- date picker birthday -->
+
+                                <!-- date picker birthday -->
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold"
+                                                    for="exampleInputPassword1">Birthday:</label>
+                                            </div>
+                                            <!-- <input readonly type="text" class="form-control" id="doB"
+                                    value="{{candidateProfile.doB | date}}"> -->
+                                            <span
+                                                class="ml-3 span-text dark-grey-text font-weight-medium mr-3">{{candidateProfile.doB | date}}</span>
+                                        </div>
+                                        <!-- <hr /> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold" for="address">
+                                                    Address:</label>
+                                            </div>
+                                            <!-- <input readonly type="text" class="form-control" id="address"
+                                        value="{{candidateProfile.address}}"> -->
+                                            <span
+                                                class="ml-3 span-text dark-grey-text font-weight-medium mr-3">{{candidateProfile.address}}</span>
+                                        </div>
+                                        <!-- <hr /> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold" for="address">
+                                                    City Province:</label></div>
+                                            <!-- <input readonly type="text" class="form-control" id="address"
+                                        value="{{candidateProfile.address}}"> -->
+                                            <span
+                                                class="ml-3 span-text dark-grey-text font-weight-medium mr-3">{{candidateProfile.city_province}}</span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- </form> -->
+                        </div>
+                    </mdb-card>
+
+
+                    <div class="mt-3  pt-3  ml-5  mr-5  hotjobs-title  pb-2 pl-3 mb-3 font-weight-bold">
+
+                        <h5 class="font-weight-bold"> <i class="fas fa-briefcase mr-3"></i>WORK EXPECTATION</h5>
+
+                    </div>
+
+                    <mdb-card class="  mt-3 ml-5 pl-5  mr-5 mb-5 bg-white ">
+                        <div class="mt-3   mr-5 profile-card-font   ">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold" for="address">
+                                                    Job types:</label></div>
+                                            <!-- <input readonly type="text" class="form-control" id="address"
+                                    value="{{candidateProfile.address}}"> -->
+                                            <span *ngIf="candidateProfile.jobtypes"
+                                                class="ml-3 span-text dark-grey-text work-expect-text font-weight-medium mr-3">{{candidateProfile.jobtypes}}</span>
+                                            <span *ngIf="!candidateProfile.jobtypes"
+                                                class="ml-3 span-text dark-grey-text work-expect-text font-weight-medium mr-3">No
+                                                requirements</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold" for="address">
+                                                    Industries:</label></div>
+                                            <!-- <input readonly type="text" class="form-control" id="address"
+                                    value="{{candidateProfile.address}}"> -->
+                                            <span *ngIf="candidateProfile.industries"
+                                                class="ml-3 span-text dark-grey-text work-expect-text font-weight-medium mr-3">{{candidateProfile.industries}}</span>
+                                            <span *ngIf="!candidateProfile.industries"
+                                                class="ml-3 span-text dark-grey-text work-expect-text font-weight-medium mr-3">No
+                                                requirements</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-md-12  profile-text-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label class="text-muted font-weight-bold" for="address">
+                                                    Expected Salary:</label> <span> <small id="optional"
+                                                        class=" text-muted">(VND) </small></span></div>
+                                            <!-- <input readonly type="text" class="form-control" id="address"
+                                    value="{{candidateProfile.address}}"> -->
+                                            <span *ngIf="candidateProfile.expectedsalary"
+                                                class="ml-3 span-text dark-grey-text font-weight-medium mr-3">{{candidateProfile.expectedsalary | currency:"VND"}}</span>
+                                            <span *ngIf="!candidateProfile.expectedsalary"
+                                                class="ml-3 span-text dark-grey-text work-expect-text font-weight-medium mr-3">No
+                                                requirements</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- <button type="submit" (click)="editProfileShow();"
+                            class="btn btn-primary pl-5 pr-5 mb-5 mt-3 ">Edit</button> -->
+                        </div>
+                    </mdb-card>
+                    <button type="button" (click)="editProfileShow();" class=" mr-5 pl-5 pr-5 mb-5 mt-3"
+                        style="float:right" mdbBtn color="primary" mdbWavesEffect>Edit</button>
+                </div>
+
+                <!-- Personalities view end -->
+                <!-- Personalities edit start -->
+                <div class="custom pr-5" *ngIf="isEditProfileShown">
+                    <div class=" mt-5 ml-5  mr-5 font-weight-bold" style="font-size: 15px; color: #F57C00;">
+                        <i class="fas fa-user-edit mr-3 fa-2x"></i> EDIT PERSIONALITY INFORMATION
+                    </div>
+                    <form class="mt-3 ml-5  mr-5 ">
+
+                        <!-- profile visible -->
+                        <div class="row mt-1">
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <div class="form-group ">
+                                    <!-- Default checked -->
+                                    <label class="text-muted font-weight-bold mr-3" for="profile_visible">
+                                        Share your profile</label>
+
+                                    <!-- <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitches"
+                                    [(ngModel)]="candidateProfileRequest.profile_visible" 
+                                    checked  >
+                                                                     
+                                    <label class="custom-control-label" for="customSwitches" >{{candidateProfileRequest.profile_visible}}</label>
+                                  </div> -->
+                                    <ui-switch [(ngModel)]="candidateProfileRequest.profile_visible"
+                                        name="profile_visible" size="small"></ui-switch>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- prfile visible -->
+
+                        <div class="row mt-3 ">
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <div class="form-group ">
+                                    <label class="dark-grey-text  font-weight-bold " for="exampleInputEmail1">Full
+                                        Name</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" required [(ngModel)]="candidateProfileRequest.name"
+                                        name="name" value={{candidateProfileRequest.name}}>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-12 col-md-12">
+                                <div class="form-group ">
+                                    <label class="dark-grey-text font-weight-bold"
+                                        for="exampleInputEmail1">Gender</label>
+                                    <select class="custom-select custom-select mb-3" name="gender"
+                                        [(ngModel)]="candidateProfileRequest.gender">
+                                        <!-- <option selected *ngIf="!candidateProfileRequest.gender">Gender</option> -->
+                                        <option value="Male" *ngIf="!candidateProfileRequest.gender">Male</option>
+                                        <option value="Female" *ngIf="!candidateProfileRequest.gender">Female</option>
+                                        <option selected *ngIf="candidateProfileRequest.gender">
+                                            {{candidateProfileRequest.gender}}</option>
+                                        <option value="Male" *ngIf="candidateProfileRequest.gender==='Female'">Male
+                                        </option>
+                                        <option value="Female" *ngIf="candidateProfileRequest.gender==='Male'">Female
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="dark-grey-text font-weight-bold" for="phonenumber">Phone</label>
+                                    <input type="tel" class="form-control" id="phonenumber"
+                                        [(ngModel)]="candidateProfileRequest.phonenumber" name="phonenumber">
+                                </div>
+                            </div>
+
+                            <!-- date picker birthday -->
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="dark-grey-text font-weight-bold"
+                                        for="exampleInputPassword1">Birthday</label>
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" placeholder="yyyy-mm-dd"
+                                                    [(ngModel)]="candidateProfileRequest.doB" name="doB" ngbDatepicker
+                                                    #de="ngbDatepicker" [maxDate]="{year: 2001, month: 12, day: 31}">
+
+                                                <div class="input-group-append">
+                                                    <button mdbBtn color="primary" outline="true" class="m-0 px-3 py-2"
+                                                        size="md" mdbWavesEffect (click)="de.toggle()" type="button"> <i
+                                                            class="fas fa-calendar-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- date picker birthday -->
+                        </div>
+                        <div class="row mt-3">
+                            <!-- <div class="col-lg-6 col-sm-12 col-md-12" *ngIf="user_account.candidate"> -->
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <div class="form-group ">
+                                    <label class="dark-grey-text font-weight-bold" for="address">
+                                        Home Address</label>
+                                    <input type="email" class="form-control" id="address"
+                                        [(ngModel)]="candidateProfileRequest.address" name="address">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="dark-grey-text font-weight-bold" for="city_province">
+                                        City Province</label>
+                                    <input type="email" class="form-control" id="city_province"
+                                        [(ngModel)]="candidateProfileRequest.city_province" name="city_province">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <div class=" mt-3 ml-5  mr-5 font-weight-bold" style="font-size: 15px; color: #F57C00;">
+                        <i class="fas fa-edit mr-3 fa-2x"></i> EDIT WORK EXPECTATION
+                    </div>
+                    <form class="mt-3 ml-5  mr-5 ">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <div class="form-group mt-3">
+                                    <label class="dark-grey-text font-weight-bold" for="work_title">
+                                        Work Title</label>
+                                    <input type="text" class="form-control" id="work_title"
+                                        [(ngModel)]="candidateProfileRequest.work_title" name="work_title">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-sm-6 col-md-6">
+                                <div class="form-group mt-3">
+                                    <label class="dark-grey-text font-weight-bold" for="experiencedyears">
+                                        Experienced Years </label>
+                                    <input type="number" min="0" class="form-control" id="experiencedyears"
+                                        [(ngModel)]="candidateProfileRequest.experiencedyears" name="experiencedyears">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <!-- <div class="form-group" *ngFor="let item of candidateProfileRequest.jobtypes;
+                                let index = index "> -->
+
+                                <label class="dark-grey-text font-weight-bold" for="jobtype">
+                                    Job types</label>
+                                <!-- <input type="text" class="form-control" id="jobtype"
+                                        [(ngModel)]="candidateProfileRequest['jobtypes']"
+                                        name="candidateProfileRequest"> -->
+                                <!-- true -->
+                                <!-- <input type="text" class="form-control" id="jobtype"
+                                        [(ngModel)]="candidateProfileRequest.jobtypes[index]" name="word{{index}}"> -->
+                                <div>
+                                    <ng-select2 [data]="jobTypes" [options]="options"
+                                        [(ngModel)]="candidateProfileRequest.jobtypes" name="jobtypes"></ng-select2>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-lg-6 col-sm-12 col-md-12">
+                                <!-- <div class="form-group" *ngFor="let item of candidateProfileRequest.jobtypes;
+                                let index = index "> -->
+
+                                <label class="dark-grey-text font-weight-bold" for="jobtype">
+                                    Industries</label>
+
+                                <div>
+                                    <ng-select2 [data]="industries" [options]="options"
+                                        [(ngModel)]="candidateProfileRequest.industries" name="industries"></ng-select2>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-md-6">
+                                <div class="form-group mt-3">
+                                    <label class="dark-grey-text font-weight-bold" for="expectedsalary">
+                                        Expected Salary</label>
+                                    <!-- <input type="text" class="form-control" id="expectedsalary"
+                                        aria-describedby="expectedsalary"
+                                        [(ngModel)]="candidateProfileRequest.expectedsalary" name="expectedsalary"> -->
+                                    <select class="custom-select custom-select mb-3" name="expectedsalary"
+                                        [(ngModel)]="candidateProfileRequest.expectedsalary">
+                                        <option value="0">0</option>
+                                        <option value="8000000">8000000</option>
+                                        <option value="10000000">10000000</option>
+                                        <option value="15000000">15000000
+                                        </option>
+                                        <option value="20000000">20000000
+                                        </option>
+                                        <option value="30000000">30000000
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" (click)="backAccountList();"
+                            class="btn btn-outline-primary pl-5 pr-5 mb-5 mt-3">Back</button>
+                        <button type="submit" (click)="updateProfile(dangerTpl, successTpl);"
+                            class="btn btn-primary pl-5 pr-5 mb-5 mt-3 ">Save</button>
+                    </form>
+                </div>
+                <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+                <ng-template #successTpl>
+                    <span style="font-size: 18px;"><i class="fas fa-check mr-3 "></i>Successfully!</span>
+                </ng-template>
+                <ng-template #dangerTpl>
+                    <span style="font-size: 18px;"><i class="fas fa-exclamation-triangle mr-3"></i>There got
+                        some error</span>
+                </ng-template>
+            </ng-template>
+            <!-- Personalities edit start -->
+
+            <!-- Personalities edit end -->
+            <!-- màn hình thông tin cá nhân -->
+
+        </ng-container>
+        <!-- PERSIONALITY INFORMATION end -->
+
+        <ng-container ngbNavItem>
+            <a class="text-uppercase text-monospace font-weight-bold pl-5 pr-5 h5 " ngbNavLink>
+                Experience</a>
+            <ng-template ngbNavContent>
+                <!-- màn hình kinh nghiệm làm việc -->
+
+                <div class="custom pr-5">
+                    <!-- alert -->
+                    <ngb-alert class="ml-3" *ngIf="successMessage" type="success" (close)="successMessage = ''">
+                        {{ successMessage }}
+                    </ngb-alert>
+                    <div class="row mt-5 justify-content-start">
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-3 ml-3">
+                            <div class="bg-primary  ml-3 mt-2 pt-1 pb-1  pl-1  border rounded border-primary">
+                                <input type="checkbox" class="mr-2 mt-1" aria-label="Checkbox for following text input"
+                                    (click)="changeSuccessMessage()">
+                                <label class="text-light "> I have no experience</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 ml-3">
+                            <!-- <button type="button" class="btn btn-primary" (click)="openLg(experiment)"><i
+                                    class="fa fa-plus mr-2"></i>Add
+                                experiments</button> -->
+                            <button type="button" class="btn btn-primary" (click)="openLg(experiment)"><i
+                                    class="fa fa-plus mr-2"></i>Add
+                                experience</button>
+                        </div>
+                    </div>
+                    <div class="ml-3 mt-3 mb-5" *ngIf="isExperiencesEmpty()">
+                        <ngb-toast class="bg-warning white-text" style="min-width: 100% ;" *ngIf="show"
+                            header="Get started" [autohide]="false" (hide)="close()">
+                            Press Add to fill your profile
+                        </ngb-toast>
+                        <p *ngIf="!show">
+                            <button type="button" class="btn btn-warning white-text" (click)="openLg(experiment)"><i
+                                    class="fa fa-plus mr-2"></i>Add
+                                experience</button></p>
+                    </div>
+                    <!-- tab thong tin kinh nghiem -->
+                    <div class="ml-3 mt-3 mb-5" *ngIf="candidateProfile.experiences">
+                        <mdb-card
+                            class="expericene-card  bg-white col-lg-12  col-md-12 col-sm-12 pb-3    mb-3 pt-3 ml-3 "
+                            *ngFor="let experience of candidateProfile.experiences">
+                            <div class="row mb-1 ">
+
+                                <div class="col-9 ml-3  pt-2 pb-2   vnjobs-title  font-weight-normal school">
+                                    {{experience.companyname}}
+
+                                </div>
+                                <div class="col-2">
+
+                                    <a (click)="deleteExperience(experience.id,dangerTpl,successTpl)"><i
+                                            class="fas fa-trash-alt show-me mt-3" style="color:rgb(250, 133, 0);
+                                                  "></i></a>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="row ml-5">
+                                <div class="col-3">
+                                    <label class="text-muted font-weight-normal" for="school">Job Title:</label>
+                                </div>
+                                <div class=" text-body font-weight-normal ">
+                                    {{experience.job_title}}</div>
+                            </div>
+                            <div class="row ml-5">
+                                <div class="col-3">
+                                    <label class="text-muted font-weight-normal" for="school">Time:</label>
+                                </div>
+                                <div class=" text-body font-weight-normal ">
+                                    {{experience.start_date |date}} - {{experience.end_date | date}}</div>
+                            </div>
+                            <div class="row ml-5">
+                                <div class="col-3" style="font-size: 13px;">
+                                    <label class="text-muted font-weight-normal" for="school">Description:</label>
+                                </div>
+                                <div class=" text-muted font-weight-normal " style="font-size: 13px;">
+                                    {{experience.description}}</div>
+                            </div>
+
+
+
+                        </mdb-card>
+                        <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+                        <ng-template #successTpl>
+                            <span style="font-size: 18px;"><i class="fas fa-check mr-3 "></i>Successfully!</span>
+                        </ng-template>
+                        <ng-template #dangerTpl>
+                            <span style="font-size: 18px;"><i class="fas fa-exclamation-triangle mr-3"></i>There got
+                                some error</span>
+                        </ng-template>
+                    </div>
+                    <!-- tab thong tin kinh nhgiem -->
+
+
+                </div>
+                <!-- màn hình kinh nghiệm làm việc -->
+            </ng-template>
+        </ng-container>
+
+        <ng-container ngbNavItem>
+            <a class="text-uppercase text-monospace font-weight-bold pl-5 pr-5 h5 " ngbNavLink>
+                Education</a>
+            <ng-template ngbNavContent>
+                <!-- màn kình học vấn -->
+                <div class="custom pr-5">
+                    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = ''">{{ successMessage }}
+                    </ngb-alert>
+                    <div class="row mt-5 justify-content-start">
+                        <div class="col-lg-4 col-md-6 col-sm-12 ml-3">
+                            <button type="button" class="btn btn-primary" (click)="openLg(education)"><i
+                                    class="fa fa-plus mr-2"></i>Add
+                                educations</button>
+                        </div>
+                    </div>
+                    <div class="ml-3 mt-3 mb-5" *ngIf="isEducationsEmpty()">
+                        <ngb-toast class="bg-warning white-text" style="min-width: 100% ;" *ngIf="show"
+                            header="Get started" [autohide]="false" (hide)="close()">
+                            Press Add to fill your profile
+
+                        </ngb-toast>
+
+                    </div>
+                    <!-- tab thong tin hoc van -->
+                    <div class="ml-3 mt-3 mb-5" *ngIf="candidateProfile.educations">
+                        <mdb-card
+                            class="expericene-card  bg-white col-lg-12  col-md-12 col-sm-12 pb-3    mb-3 pt-3 ml-3 "
+                            *ngFor="let education of candidateProfile.educations">
+                            <div class="row mb-1">
+
+                                <div class="col-9  ml-3 pt-2 pb-2   vnjobs-title font-weight-normal school">
+                                    <i class="fas fa-graduation-cap fa-2x mr-2"></i> {{education.university_college}}
+                                </div>
+                                <div class="col-2">
+
+
+                                    <a (click)="deleteEducation(education.id,dangerTpl,successTpl)">
+                                        <i class="fas fa-trash-alt show-me mt-3" style="color:rgb(250, 133, 0);
+                                                  "></i></a>
+
+
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="row ml-5">
+                                <div class="col-3">
+                                    <label class="text-muted font-weight-normal" for="major">Major:</label>
+                                </div>
+                                <div class=" text-body font-weight-normal ">
+                                    {{education.major}}</div>
+                            </div>
+                            <div class="row ml-5">
+                                <div class="col-3">
+                                    <label class="text-muted font-weight-normal" for="startdate">Start date:</label>
+                                </div>
+                                <div class=" text-body font-weight-normal ">
+                                    {{education.start_date |date}}</div>
+                            </div>
+                            <div class="row ml-5">
+                                <div class="col-3">
+                                    <label class="text-muted font-weight-normal" for="completiondate">Completion
+                                        date:</label>
+                                </div>
+                                <div class=" text-body font-weight-normal ">
+                                    {{education.completion_date | date}}</div>
+                            </div>
+                            <div class="row ml-5">
+                                <div class="col-3">
+                                    <label class="text-muted font-weight-normal" for="gpa">GPA:</label>
+                                </div>
+                                <div class=" text-body font-weight-normal ">
+                                    {{education.gpa}}</div>
+                            </div>
+
+                        </mdb-card>
+                        <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+                        <ng-template #successTpl>
+                            <span style="font-size: 18px;"><i class="fas fa-check mr-3 "></i>Successfully!</span>
+                        </ng-template>
+                        <ng-template #dangerTpl>
+                            <span style="font-size: 18px;"><i class="fas fa-exclamation-triangle mr-3"></i>There got
+                                some error</span>
+                        </ng-template>
+
+                    </div>
+                    <!-- tab thong tin hoc van -->
+
+                </div>
+                <!-- màn hình học vấn -->
+            </ng-template>
+        </ng-container>
+
+    </nav>
+    <!-- modal add kinh nghiem -->
+    <ng-template #experiment let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title text-primary" id="modal-basic-title">Add experience</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!-- test go tolist -->
+        <!-- <div [hidden]="submitted" class="modal-body mr-3"> -->
+        <div class="modal-body mr-3">
+            <form *ngFor="let rule of experienceArray; let i = index">
+                <div class="row ">
+                    <div class="col-lg-6 col-sm-12 col-md-12">
+                        <div class="form-group ">
+                            <label class="dark-grey-text  font-weight-bold " for="companyName">Company Name</label>
+                            <input type="text" class="form-control" id="companyName" required
+                                [(ngModel)]="rule['companyname']" name="rule">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label class="dark-grey-text font-weight-bold " for="jobTitle">Job Title</label>
+                            <input type="text" class="form-control" id="jobTitle" [(ngModel)]="rule['jobtitle']"
+                                name="rule">
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-lg-6 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label class="dark-grey-text font-weight-bold " for="description">description</label>
+                            <input type="text" class="form-control" id="description"  [(ngModel)]="requestObject.experiences[].description" name="description">
+                        </div>
+                    </div> -->
+                </div>
+
+
+                <div class="row mt-3">
+                    <!-- date picker birthday -->
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="dark-grey-text font-weight-bold" for="jobStartDay">Start Day</label>
+                            <!-- <input type="password" class="form-control" id="exampleInputPassword1"> -->
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" placeholder="yyyy-mm-dd" name="rule"
+                                            [(ngModel)]="rule['startdate']" ngbDatepicker #ds="ngbDatepicker"
+                                            [maxDate]="{year: 2020, month: 12, day: 31}">
+                                        <div class="input-group-append">
+                                            <button mdbBtn color="primary" outline="true" class="m-0 px-3 py-2"
+                                                size="md" mdbWavesEffect (click)="ds.toggle()" type="button"> <i
+                                                    class="fas fa-calendar-plus"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <!-- <pre>Model: {{ rule['startdate'] | json }}</pre> -->
+                                </div>
+
+                            </form>
+
+
+
+                        </div>
+                    </div>
+
+
+                    <!-- date picker birthday -->
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="dark-grey-text font-weight-bold" for="jobEndDay">End Day</label>
+                            <!-- <input type="password" class="form-control" id="exampleInputPassword1"> -->
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" placeholder="yyyy-mm-dd"
+                                            [(ngModel)]="rule['enddate']" name="rule" ngbDatepicker #de="ngbDatepicker"
+                                            [maxDate]="{year: 2020, month: 12, day: 31 }">
+
+                                        <div class="input-group-append">
+                                            <button mdbBtn color="primary" outline="true" class="m-0 px-3 py-2"
+                                                size="md" mdbWavesEffect (click)="de.toggle()" type="button"> <i
+                                                    class="fas fa-calendar-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <label class="dark-grey-text font-weight-bold" for="jobDescription">Description</label>
+                    <textarea type="text" class="form-control" id="jobDescription" [(ngModel)]="rule['description']"
+                        name="rule"></textarea>
+                </div>
+
+            </form>
+            <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+            <ng-template #successTpl>
+                <span style="font-size: 18px;"><i class="fas fa-check mr-3 "></i>Successfully!</span>
+            </ng-template>
+            <ng-template #dangerTpl>
+                <span style="font-size: 18px;"><i class="fas fa-exclamation-triangle mr-3"></i>There got
+                    some error</span>
+            </ng-template>
+        </div>
+        <div class="modal-footer">
+
+            <button type="submit" class="btn btn-outline-dark"
+                (click)="saved(dangerTpl, successTpl);modal.close('Save click');">Save</button>
+        </div>
+    </ng-template>
+    <!-- modal add kinh nghiem -->
+
+    <!-- modal add education -->
+    <ng-template #education let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title text-primary" id="modal-basic-title">Add educations</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body mr-3">
+            <form *ngFor="let edu of educationArray; let i = index">
+                <div class="row ">
+                    <div class="col-lg-12 col-sm-12 col-md-12">
+                        <div class="form-group ">
+                            <label class="dark-grey-text  font-weight-bold " for="univerisy">University/College</label>
+                            <input type="text" class="form-control" id="univerisy"
+                                [(ngModel)]="edu['university_college']" name="edu">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row ">
+                    <div class="col-lg-6 col-sm-12 col-md-12">
+                        <div class="form-group ">
+                            <label class="dark-grey-text  font-weight-bold " for="major">Major</label>
+                            <input type="text" class="form-control" id="major" [(ngModel)]="edu['major']" name="edu">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label class="dark-grey-text font-weight-bold " for="gpa">GPA</label>
+                            <input type="number" class="form-control" id="gpa" [(ngModel)]="edu['gpa']" name="edu">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <!-- date picker birthday -->
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="dark-grey-text font-weight-bold" for="eduStartDay">Start Day</label>
+                            <!-- <input type="password" class="form-control" id="exampleInputPassword1"> -->
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" placeholder="yyyy-mm-dd"
+                                            [(ngModel)]="edu['startdate']" name="edu" ngbDatepicker #eds="ngbDatepicker"
+                                            [minDate]="{year: 2004, month: 12, day: 31}">
+                                        <div class="input-group-append">
+                                            <button mdbBtn color="primary" outline="true" class="m-0 px-3 py-2"
+                                                size="md" mdbWavesEffect (click)="eds.toggle()" type="button"> <i
+                                                    class="fas fa-calendar-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <!-- date picker birthday -->
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="dark-grey-text font-weight-bold" for="eduEndDay">End Day</label>
+                            <!-- <input type="password" class="form-control" id="exampleInputPassword1"> -->
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" placeholder="yyyy-mm-dd"
+                                            [(ngModel)]="edu['completiondate']" name="edu" ngbDatepicker
+                                            #ede="ngbDatepicker" [maxDate]="{year: 2020, month: 5, day: 13}">
+                                        <div class="input-group-append">
+                                            <button mdbBtn color="primary" outline="true" class="m-0 px-3 py-2"
+                                                size="md" mdbWavesEffect (click)="ede.toggle()" type="button"> <i
+                                                    class="fas fa-calendar-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+            <ng-template #successTpl>
+                <span style="font-size: 18px;"><i class="fas fa-check mr-3 "></i>Successfully!</span>
+            </ng-template>
+            <ng-template #dangerTpl>
+                <span style="font-size: 18px;"><i class="fas fa-exclamation-triangle mr-3"></i>There got
+                    some error</span>
+            </ng-template>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark"
+                (click)="addEducation(dangerTpl, successTpl);modal.close('Save click')">Save</button>
+        </div>
+    </ng-template>
+    <!-- modal add education -->
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>

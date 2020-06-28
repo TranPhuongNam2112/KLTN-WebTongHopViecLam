@@ -1,0 +1,189 @@
+<!-- <app-header-for-guest></app-header-for-guest> -->
+<!-- Main navigation -->
+<section>
+    <!-- Full Page Intro -->
+    <div class="view jarallax"
+        style="background-image: url('./assets/images/candidate/login.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+            <!-- Content -->
+            <div class="container">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 mb-4 white-text text-center">
+                        <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown"
+                            data-wow-delay="0.3s"><strong>Don't miss your jobs</strong></h1>
+                        <br />
+                        <br />
+                        <a [routerLink]="['./login']" mdbBtn color="primary" rounded="true" mdbWavesEffect>
+                            <mdb-icon fas icon="user" class="left"></mdb-icon><strong>Sign in now!</strong>
+                        </a>
+                        <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <br />
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!-- <app-search-job></app-search-job> -->
+                <div class="heavy-rain-gradient
+                rounded-lg pl-3 pr-3 rounded-lg">
+
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-12 col-md-12">
+                            <div class="input-group mt-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <mdb-icon fas icon="search"></mdb-icon>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Find your job type expectation"
+                                    aria-label="expectation" aria-describedby="basic-addon1" [(ngModel)]="jobtype"
+                                    name="jobtype">
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-sm-12 col-md-12 mt-4">
+                            <div class="dropdown" mdbDropdown>
+                                <button mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light"
+                                    type="button" mdbWavesEffect block="true">
+                                    <span class="text-button">All Jobs</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-primary">
+                                    <!-- job -->
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <!-- job    -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 col-md-12 mt-4">
+                            <div class="dropdown" mdbDropdown>
+                                <button mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light"
+                                    type="button" mdbWavesEffect block="true">
+                                    <span class="text-button">All Locations</span>
+
+                                </button>
+                                <div class="dropdown-menu dropdown-primary">
+                                    <!-- location -->
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <!-- location    -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-12 col-md-12">
+                            <button (click)="searchJobType()" mdbBtn color="success" block="true" class="my-4"
+                                type="submit"> <strong><span class="text-button">Search</span></strong> </button>
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+    </div>
+    <!-- Full Page Intro -->
+
+    <!-- List jobs -->
+    <div class="card ">
+        <div class="card-body container">
+            <h5 class="card-title text-center">Lasted Jobs</h5>
+            <hr class="hr-grey my-4 wow fadeInDown" data-wow-delay="0.4s">
+            <!-- list job -->
+            <div *ngIf="isAllJobPostEmpty()" class="text-center">
+
+                <img src="./assets/images/rsz_nocontent.png">
+            </div>
+            <div *ngIf="allJobPost">
+                <!-- <div class="row">
+        <div *ngFor="let jobpost of allJobPost;" style="border: 1px solid black" class="col-lg-6 col-md-12">
+            {{jobpost.jobtitle}}
+        </div>
+    </div> -->
+                <div class="row">
+                    <div *ngFor="let jobpost of allJobPost;"
+                        class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
+                        <div class=" pt-3 mb-3 pr-3  border rounded border-weight-light bg-light">
+                            <div class="row pl-1">
+                                <div class="col-lg-3 col-md-12 col-sm-12 mt-3">
+                                    <img class="card-img-top  " src="data:image/png;base64,{{jobpost.image}}"
+                                        alt="Company image cap">
+
+                                </div>
+                                <div class="col-lg-9 col-md-12 col-sm-12 mt-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="row">
+                                                <a href="https://www.w3schools.com" class="font-weight-bold"
+                                                    style="font-size:16px;">
+                                                    {{jobpost.jobtitle}}</a>
+                                            </div>
+                                            <div class="row">
+                                                <label class="text-secondary" style="font-size: 14px ; ">
+                                                    <i class="fas fa-map-marker-alt mr-1">
+                                                    </i> {{jobpost.city}}
+                                                </label>
+                                                <label class="ml-3 text-secondary" style="font-size: 14px;">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                    {{jobpost.minSalary | currency}} -
+                                                    {{jobpost.maxSalary | currency}}
+
+                                                </label>
+                                            </div>
+                                            <div class="row ">
+
+                                                <label class="text-muted font-weight-bold mr-3"
+                                                    for="expireddate">Company
+                                                    Name:</label>
+
+                                                <div class=" text-body font-weight-normal ">
+                                                    {{jobpost.companyname }}</div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="text-muted font-weight-bold mr-3" for="industry">Job
+                                                    Type:</label>
+                                                <div class=" text-body font-weight-normal ">
+                                                    {{jobpost.jobtype}}</div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="text-muted font-weight-bold mr-3"
+                                                    for="industry">Experience
+                                                    Years:</label>
+                                                <div class=" text-body font-weight-normal ">
+                                                    {{jobpost.experienceyears}}</div>
+                                            </div>
+                                            <!-- <p class="card-text text-muted" style="font-size: 13px;">
+                                    {{savedjob.experienceyears}}</p> -->
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label class="bg-secondary text-light pl-1 pr-1 "
+                                                mdbTooltip="Expiration Date"
+                                                style="font-size: 12px;">{{jobpost.expirationDate |date:'medium'}}</label>
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- list job -->
+        </div>
+
+        <!-- list job -->
+        <!-- button show more -->
+        <div *ngIf="!isAllJobPostEmpty()" class="text-center mb-3">
+            <a [routerLink]="['/guest/alljoblists']" class="btn btn-primary mr-auto"><strong>Show more</strong></a>
+        </div>
+        <!-- button show more -->
+    </div>
+
+
+    <!-- List Jobs -->
+</section>
+<!-- Main navigation -->

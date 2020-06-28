@@ -1,0 +1,134 @@
+<app-header-for-guest></app-header-for-guest>
+<div class="login  mt-5 ">
+    <div class="mask rgba-black-light pb-5">
+        <div class="container" >
+            <div class="row ">
+                <div class="col-lg-3 col-md-1 col-sm-1">
+                </div>
+
+                <div class="col-lg-6 col-md-10 col-sm-10">
+                    <!-- Material form login -->
+                    <mdb-card>
+                        <mdb-card-header class=" primary-color white-text text-center py-4">
+                            <h4>
+                                Register now!
+                            </h4>
+                            <p>Don't lose chance to find interesting jobs</p>
+                        </mdb-card-header>
+                        <!--Card content-->
+                        <mdb-card-body class="px-lg-5 pt-0">
+
+                            <!-- Form -->
+                            <form *ngIf="!isSuccessful" name="registerForm" (ngSubmit)="f.form.valid && onSubmit()"
+                                #f="ngForm" novalidate>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-md-6 col-xs-6 d-flex justify-content-center">
+                                     
+                                        <button type="button" mdbBtn size="lg" color="fb" class="btn btn-indigo"
+                                            mdbWavesEffect
+                                            onClick="window.open('//localhost:8080/oauth2/authorize/facebook?redirect_uri=http://localhost:4200','_self')"
+                                            > <span>Facebook</span></button>
+                                    </div>
+                                    
+
+                                    <div class="col-md-6 col-xs-6 d-flex justify-content-center">
+                                        <button type="button" mdbBtn size="lg" mdbBtn color="gplus"
+                                            class="btn btn-danger" mdbWavesEffect 
+                                            onClick="window.open('//localhost:8080/oauth2/authorize/google?redirect_uri=http://localhost:4200','_self')"
+                                            > Google
+                                        </button>
+                                    </div>
+                                    <div class="form-group mt-3 ml-3 mr-3">
+                                        <div class="alert alert-danger" role="alert" *ngIf="error.error">
+                                             {{ error.error }}
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                style="width: 100%; height: 20px; border-bottom: 1px ridge ; text-align: center; margin-bottom: 20px;">
+                                <span style="font-size: 14px; background-color: #ffffff; padding: 0 10px;">
+                                    or 
+                                </span>
+                            </div>
+                            <!-- <div class="form-group">
+                                Signup failed!<br />{{ errorMessage }}
+                            </div> -->
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" name="name"
+                                        [(ngModel)]="registerForm.name" required minlength="3" maxlength="30"
+                                        #name="ngModel" />
+                                    <div class="alert-danger" *ngIf="f.submitted && name.invalid">
+                                        <div *ngIf="name.errors.required">Name is required</div>
+                                        <div *ngIf="name.errors.minlength">
+                                            Name must be at least 3 characters
+                                        </div>
+                                        <div *ngIf="name.errors.maxlength">
+                                            Name must be at most 20 characters
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" name="email"
+                                        [(ngModel)]="registerForm.email" required email #email="ngModel" />
+                                    <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+                                        <div *ngIf="email.errors.required">Email is required</div>
+                                        <div *ngIf="email.errors.email">
+                                            Email must be a valid email address
+                                        </div>
+                                    </div>
+                                    <small id="emailHelp2" class="form-text text-muted">We'll never share your email
+                                        with anyone.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <small id="optional" class="ml-2  text-success">(at least 6 characters)</small>
+                                    <input type="password" class="form-control" name="password"
+                                        [(ngModel)]="registerForm.password" required minlength="6"
+                                        #password="ngModel" />
+                                    <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+                                        <div *ngIf="password.errors.required">Password is required</div>
+                                        <div *ngIf="password.errors.minlength">
+                                            Password must be at least 6 characters
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Sign in button -->
+                                <div  class="d-flex justify-content-center" *ngIf=" isShown && f.valid " >
+                                            <img class="loader" src="../assets/images/loader3.svg">
+                                        </div>
+                                <div class="form-group">
+                                    <button mdbBtn color="primary" outline="true" rounded="true" block="true"
+                                        class="my-4 waves-effect z-depth-0"
+                                        mdbWavesEffect 
+                                        (click)="toggleShow()"
+                                        ><strong>Register</strong></button>
+                                      
+                                </div>
+                               
+                                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                                    Signup failed!<br />{{ errorMessage }}
+                                </div>
+                            </form>
+                            <div class="alert alert-success mt-3" *ngIf="isSuccessful">
+                                Please check your mail to validate your account.<br/>
+                                <a [href]="'https://mail.google.com/mail/'" target="_blank" ><strong>Go to gmail</strong></a>
+                            </div>
+                            <!-- Form -->
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+                <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<ng-template #successTpl>
+    <span style="font-size: 21px;"><i class="fas fa-check mr-3 "></i>Successfully!</span>
+</ng-template>
+<ng-template #dangerTpl >
+    <span><i class="fa fa-exclamation-triangle fa-lg mr-3" aria-hidden="true"></i>{{ errorMessage }}<i class="fas fa-arrow-up"></i></span>
+</ng-template>
