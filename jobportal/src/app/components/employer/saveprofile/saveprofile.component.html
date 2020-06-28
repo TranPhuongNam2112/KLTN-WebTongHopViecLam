@@ -1,0 +1,127 @@
+<!-- <header>
+    <app-header-for-employer></app-header-for-employer>
+</header> -->
+
+<div class="container-fluid">
+    <div class="container pt-3 " >
+        <div class="card-body container">
+            <h5 class="card-title ml-3">Saved Profile</h5>
+            <hr class="hr-grey my-4 wow fadeInDown" data-wow-delay="0.4s">
+            <!-- list job -->
+            <div class="row bg-light pb-3 border rounded border-weight-light" *ngIf="isSavedCandidateEmpty()">
+                <div class=" col-lg-10 col-md-12 col-sm-12 ml-5 text-center ">
+
+                    <h1 class="mt-5 text-muted">
+                        You have 0 Saved Candidates
+                    </h1>
+                    <h3 class="text-center text-dark no-jobs-caption">
+                        Trời ơi! You haven't saved any candidates yet.
+                    </h3>
+
+                    <img src="./assets/images/employer/nosavedcandidate.jpg">
+
+                    <h3 class="font-weight-normal text-muted">
+                        Click the heart to save candidate.
+                    </h3>
+
+                </div>
+            </div>
+            <div *ngIf="savedCandidate">
+
+                <!-- <div class="row">
+            <div *ngFor="let jobpost of allJobPost;" style="border: 1px solid black" class="col-lg-6 col-md-12">
+                {{jobpost.jobtitle}}
+            </div>
+        </div> -->
+        <div class="row">
+            <div *ngFor="let candidate of savedCandidate;" class="col-lg-6 col-md-12 col-sm-12  ">
+               
+                            <div class=" pt-3 pb-3 mb-2 pr-3  border rounded border-weight-light picture">
+                            <div class="row  pl-1">
+                                <div class="col-lg-3 col-md-6 col-sm-6 ">
+                                    <img *ngIf="candidate.image"
+                                        class="card-img-top border rounded-circle border-white"
+                                        src="data:image/png;base64,{{candidate.image}}"
+                                        alt="Candidate image cap">
+                                    <img *ngIf="candidate.image_url"
+                                        class="card-img-top border rounded-circle border-white"
+                                        src={{candidate.image_url}} alt="Candidate image cap">
+                                        <img *ngIf="!candidate.image_url && !candidate.image" class="card-img-top border rounded-circle border-white"
+                                        src="./assets/images/employer/avatar.jpg" alt="Candidate image cap">
+
+                                </div>
+                                <div class="col-lg-9 col-md-6 col-sm-6 mt-3 ">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <div class="row">
+                                                <a (click)="candidateDetail(candidate.id)"
+                                                    class="hovera font-weight-bold"
+                                                    style="font-size:20px;">
+                                                    {{candidate.name}}</a>
+                                            </div>
+                                            <div class="row">
+                                                <p class="job-title"> <span *ngIf="candidate.work_title" class="job-title_inner"
+                                                        data-toogle="tooltip"
+                                                        title={{candidate.work_title}}>
+                                                        {{candidate.work_title}}</span>
+                                                        <span *ngIf="!candidate.work_title"  style="color: #7B7A87; font-style: italic;"
+                                                        >
+                                                       Updating ...</span>
+                                                    </p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="title-field mr-2">Locations: </p>
+                                                <span *ngIf="candidate.city" class="location-value-text" data-toogle="tooltip"
+                                                    title={{candidate.city}}>
+                                                    {{candidate.city}}</span>
+                                                    <span *ngIf="!candidate.city" style="color: #7B7A87; font-style: italic;" >
+                                                    Updating ...</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <label *ngIf="candidate.last_updated" class="text-muted" style="font-size: 12px;"
+                                                data-toogle="tooltip" title="Lasted update"> <i
+                                                    class="far fa-clock mr-1"></i>
+                                                {{candidate.last_updated |date :'dd-MM-yyyy '}}</label>
+                                                <label *ngIf="!candidate.last_updated" class="text-muted" style="font-size: 12px;"
+                                                data-toogle="tooltip" title="Lasted update"> <i
+                                                    class="far fa-clock mr-1"></i>
+                                                    Just updated</label>
+                                                    <a class="d-flex justify-content-center pr-" mdbTooltip="delete saved candidate" placement="bottom"
+                                                    (click)="deleteSavedCandidate(candidate.id,dangerTpl,successTpl)"
+                                                    >
+                                                        <i class="fas fa-heart fa-2x mt-3 mr-5" style="color: crimson;"></i>
+                    
+                                                    </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            </div>
+                      
+            </div>
+        </div>
+                <ul class="nav nav-pills d-flex justify-content-center mt-5 mb-5">
+                    <li class="nav-item" *ngFor="let p of pages; let i=index">
+                        <a class="nav-link" href="" (click)="setPage(i,$event)" [ngClass]="{'active':i==pageNo}">
+                            {{i}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- list job -->
+        </div>
+        <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+        <ng-template #successTpl>
+            <span style="font-size: 18px;"><i class="fas fa-check mr-3 "></i>Successful!</span>
+        </ng-template>
+        <ng-template #dangerTpl>
+            <span style="font-size: 18px;"><i class="fas fa-exclamation-triangle mr-3"></i>There got
+                some error</span>
+        </ng-template>
+        <!-- list saved profile -->
+
+    </div>
+</div>

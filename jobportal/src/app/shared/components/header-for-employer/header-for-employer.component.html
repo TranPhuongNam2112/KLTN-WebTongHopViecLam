@@ -1,0 +1,90 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color fixed-top" [containerInside]="false">
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+        <a class="navbar-brand" [routerLink]="['/employer']">
+            <!-- <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt=""> -->
+            <img src="../assets/images/logo.png" height="30" alt="">
+        </a>
+    </mdb-navbar-brand>
+    <!-- Collapsible content -->
+    <links>
+        <ul class="navbar-nav mr-auto mt-2">
+            <li class="nav-item mr-3">
+                <a [routerLink]="['/employer/managejob']" class="nav-link waves-light text-light"
+                    mdbWavesEffect><strong><mdb-icon far icon="file-alt" ></mdb-icon>Jobs</strong></a>
+            </li>
+            <li class="nav-item mr-3">
+                <div class="btn-group" mdbDropdown>
+                    <span class=" nav-link waves-light"><strong><i class="fa fa-users mr-1" aria-hidden="true"></i>Candidates</strong></span>
+
+                    <a mdbDropdownToggle mdbWavesEffect type="button" class="dropdown-toggle waves-light mt-2"
+                        mdbWavesEffect style="height: auto; width: 30px;color: whitesmoke;">
+
+                    </a>
+                    <div class="dropdown-menu dropdown-primary pl-3">
+                        <a class="dropdown-item  " [routerLink]="['/employer/savedprofile']">
+                            <mdb-icon fas icon="save" ></mdb-icon> Saved Candidates</a>
+                        <div class="divider dropdown-divider"></div>
+                        <a class="dropdown-item " [routerLink]="['/employer/recommendcandidate']">
+                            <mdb-icon far icon="lightbulb"></mdb-icon> Recommended Candidates</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item mr-3">
+                <a [routerLink]="['/employer/history']" class="nav-link waves-light text-light"
+                    mdbWavesEffect><strong><mdb-icon fas icon="history"></mdb-icon>History</strong></a>
+            </li>
+            <!-- job start -->
+            <!-- <li class="nav-item">
+                <a [routerLink]="['/employer/managejob']" class="nav-link waves-light text-light"
+                    mdbWavesEffect><strong>
+                        Jobs</strong></a>
+            </li> -->
+            <!-- job end -->
+            <li class="nav-item mr-3 mb-2">
+                <a [routerLink]="['/employer/postjob']"
+                    class="nav-link waves-light border rounded border-weight-dark orange-bg " mdbWavesEffect>
+                   <strong><mdb-icon far icon="plus-square"></mdb-icon>Post Job</strong>
+                </a>
+            </li>
+            <li class="nav-item mr-3 mb-2">
+                <a [routerLink]="['/employer/searchcandidate']"
+                    class="nav-link waves-light border rounded border-weight-dark orange-bg " mdbWavesEffect>
+                    <mdb-icon fas icon="search"></mdb-icon><strong>Search Candidate</strong>
+                </a>
+            </li>
+
+        </ul>
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+           
+            <!-- post job start -->
+            <!-- <li class="nav-item ">
+                <a [routerLink]="['/employer/postjob']"
+                    class="nav-link waves-light border rounded border-weight-dark bg-warning " mdbWavesEffect>
+                    <mdb-icon fas icon="plus"></mdb-icon><strong>Post Job</strong>
+                </a>
+            </li> -->
+            <!-- post job end -->
+            <!-- bell  start-->
+            <!-- <li class="nav-item">
+                <a class="nav-link">
+                    <mdb-icon fas icon="bell"></mdb-icon>
+                </a>
+            </li> -->
+            <!-- bell end -->
+            <li class="nav-item">
+                <a [routerLink]="['/employer/account']" class="nav-link waves-light text-light"
+                    mdbWavesEffect><strong>My Account</strong></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="logout()">
+                    <mdb-icon fas icon="sign-out-alt"></mdb-icon>
+                </a>
+            </li>
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+</mdb-navbar>
