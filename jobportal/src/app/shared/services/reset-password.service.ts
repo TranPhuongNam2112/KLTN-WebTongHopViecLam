@@ -7,7 +7,7 @@ let params= localStorage.getItem('resetPass_token');
   providedIn: 'root'
 })
 export class ResetPasswordService {
-  private resetpassUrl='http://localhost:8080/auth/resetpassword';
+  private resetpassUrl='/auth/resetpassword';
   constructor(private http: HttpClient) { }
   resetPassword(resetPasswordToken,resetPass: Object): Observable<Object> {
     return this.http.post(`${this.resetpassUrl}?token=${resetPasswordToken}`,resetPass,{responseType: 'text'});
