@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ManageProfileService {
-  private getProfileURL = 'http://localhost:8080/employer/profile';
-  private updateProfileURL ='http://localhost:8080/employer/profile';
+  private getProfileURL = '/employer/profile';
+  private updateProfileURL ='/employer/profile';
   constructor(private http: HttpClient) { }
 
   getProfile(): Observable<any> {

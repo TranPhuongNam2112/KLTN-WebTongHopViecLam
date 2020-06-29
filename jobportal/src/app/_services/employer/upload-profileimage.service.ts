@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadProfileimageService {
-  private uploadProfileImageURL = 'http://localhost:8080/employer/uploadProfileImage';
+  private uploadProfileImageURL = '/employer/uploadProfileImage';
   
   constructor(private http: HttpClient) { }
   postFile(fileToUpload: File): Observable<Object> {

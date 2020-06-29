@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JobTypeService  {
-  private url = 'http://localhost:8080/api/admin/getAllJobTypes';
-  private deleteurl='http://localhost:8080/api/admin/deleteJobType';
-  private createurl='http://localhost:8080/api/admin/createJobType';
-  private updateurl='http://localhost:8080/api/admin/updateJobType';
-  private getbyIdurl='http://localhost:8080/api/admin/getJobType';
+  private url = '/api/admin/getAllJobTypes';
+  private deleteurl='/api/admin/deleteJobType';
+  private createurl='/api/admin/createJobType';
+  private updateurl='/api/admin/updateJobType';
+  private getbyIdurl='/api/admin/getJobType';
   constructor(private http: HttpClient) { }
   getAllJobTypeList(): Observable<any> {
     return this.http.get(`${this.url}`);

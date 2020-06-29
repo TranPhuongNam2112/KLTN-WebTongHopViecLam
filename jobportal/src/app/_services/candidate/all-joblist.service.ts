@@ -5,15 +5,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AllJoblistService {
-  private gettAllJobListURL = 'http://localhost:8080/home/alljobposts';
-  private deleteurl='http://localhost:8080/candidate/savedjobposts';
-  private getsaveJobPosturl = 'http://localhost:8080/candidate/savedjobposts';
-  private test = 'http://localhost:8080/candidate/savedjobposts';
-  private savejobpostURL='http://localhost:8080/candidate/savejobpost';
-  private getRecommendJobPostURL = 'http://localhost:8080/candidate/recommendedjobposts';
-  private getRecommendJobPostNoPageURL = 'http://localhost:8080/candidate/recommendedjobposts';
-  private getTopViewedJobpostsURL = 'http://localhost:8080/home/topviewedjobposts';
-  private getHotCrawledJobpostURL = 'http://localhost:8080/home/hotjobposts';
+  private gettAllJobListURL = '/home/alljobposts';
+  private deleteurl='candidate/savedjobposts';
+  private getsaveJobPosturl = '/candidate/savedjobposts';
+  private test = '/candidate/savedjobposts';
+  private savejobpostURL='/candidate/savejobpost';
+  private getRecommendJobPostURL = '/candidate/recommendedjobposts';
+  private getRecommendJobPostNoPageURL = '/candidate/recommendedjobposts';
+  private getTopViewedJobpostsURL = '/home/topviewedjobposts';
+  private getHotCrawledJobpostURL = '/home/hotjobposts';
   constructor(private http: HttpClient) { }
  
   getHotCrawledJobpost(pageNo: number): Observable<any> {

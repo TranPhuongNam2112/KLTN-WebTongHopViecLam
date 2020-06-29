@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CandidateDetailService {
-  private candidateDetailURL='http://localhost:8080/employer/candidates';
+  private candidateDetailURL='/employer/candidates';
   constructor(private http: HttpClient) { }
   getCandidateDetail(id: number): Observable<any> {
     return this.http.get(`${this.candidateDetailURL}/${id}`);

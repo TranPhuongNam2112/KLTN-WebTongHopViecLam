@@ -1,0 +1,22 @@
+{
+    "/api": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    "/home": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    "/auth": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    "/candidate": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    "/employer": {
+        "target": "http://localhost:8080",
+        "secure": false
+    }
+}

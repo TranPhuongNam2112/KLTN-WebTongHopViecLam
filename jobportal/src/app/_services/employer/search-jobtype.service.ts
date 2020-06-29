@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchJobtypeService {
-  private searchJobTypeURL = 'http://localhost:8080/home';
-  private searchIndustryURL = 'http://localhost:8080/home/searchIndustryByName';
+  private searchJobTypeURL = '/home';
+  private searchIndustryURL = '/home/searchIndustryByName';
   constructor(private http: HttpClient) { }
   searchJobByJobType(jobtype: string): Observable<any> {
     return this.http.get(`${this.searchJobTypeURL}/${jobtype}`);

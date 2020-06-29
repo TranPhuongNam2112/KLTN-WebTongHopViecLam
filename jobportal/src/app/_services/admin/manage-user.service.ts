@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ManageUserService {
-  private url = 'http://localhost:8080/api/users';
+  private url = '/api/users';
   constructor(private http: HttpClient) { }
   getUsers (pageNo: number)
   {

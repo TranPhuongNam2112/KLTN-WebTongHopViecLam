@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AllCandidateService {
-  private gettAllCandidateURL = 'http://localhost:8080/employer/candidates';
-  private saveCandidateURL='http://localhost:8080/employer/save';
-  private deleteSavedCandidateURL='http://localhost:8080/employer/savedcandidates';
-  private getSavedCandidateuURL = 'http://localhost:8080/employer/savedcandidates';
-  private getRecommendCandidateuURL = 'http://localhost:8080/employer/recommendedcandidates';
+  private gettAllCandidateURL = '/employer/candidates';
+  private saveCandidateURL='/employer/save';
+  private deleteSavedCandidateURL='/employer/savedcandidates';
+  private getSavedCandidateuURL = '/employer/savedcandidates';
+  private getRecommendCandidateuURL = '/employer/recommendedcandidates';
   constructor(private http: HttpClient) { }
  
   gettAllCandidate (pageNo: number)

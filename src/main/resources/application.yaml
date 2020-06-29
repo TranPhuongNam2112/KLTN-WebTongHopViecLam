@@ -12,9 +12,9 @@ spring:
         username: livingforshit@gmail.com
 
     datasource:
-        url: jdbc:mysql://localhost:3306/jobportal?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&useUnicode=yes&characterEncoding=UTF-8
-        username: root
-        password: 1234
+        url: jdbc:mysql://be769f8ddf6523:38d41dcf3364839@us-cdbr-east-02.cleardb.com/heroku_dc9930a5bfb9a7e?reconnect=true
+        username: be769f8ddf6523
+        password: 38d41dcf3364839
     servlet:
         multipart:
             enabled: true

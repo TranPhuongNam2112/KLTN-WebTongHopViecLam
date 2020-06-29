@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SaveJobpostService {
-  private saveJobPosturl = 'http://localhost:8080/candidate/savedjobposts';
-  private deleteurl='http://localhost:8080/candidate/savedjobposts';
+  private saveJobPosturl = '/candidate/savedjobposts';
+  private deleteurl='/candidate/savedjobposts';
   constructor(private http: HttpClient) { }
   getSaveJobPost (pageNo: number)
   {

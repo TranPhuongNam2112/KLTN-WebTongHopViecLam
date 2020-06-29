@@ -5,14 +5,14 @@ import { Observable } from 'rxjs'
   providedIn: 'root'
 })
 export class ManagejobService {
-  private getJobPostURL = 'http://localhost:8080/employer/myjobposts';
-  private detailJobPosturl='http://localhost:8080/employer/getJobPostbyId';
-  private deleteJobPosturl='http://localhost:8080/employer/deleteJobPost';
+  private getJobPostURL = '/employer/myjobposts';
+  private detailJobPosturl='/employer/getJobPostbyId';
+  private deleteJobPosturl='/employer/deleteJobPost';
 
 
-  private createJobPostURL='http://localhost:8080/employer/createpost';
+  private createJobPostURL='/employer/createpost';
 
-  private updateJobPostURL='http://localhost:8080/employer/myjobposts';
+  private updateJobPostURL='/employer/myjobposts';
   constructor(private http: HttpClient) { }
   getJobPosts (pageNo: number)
   {

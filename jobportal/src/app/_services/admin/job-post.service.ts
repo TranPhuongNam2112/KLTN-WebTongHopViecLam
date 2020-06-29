@@ -5,9 +5,9 @@ import { Observable } from 'rxjs'
   providedIn: 'root'
 })
 export class JobPostService {
-  private url = 'http://localhost:8080/api/admin/getAllJobPosts';
-  private detailurl='http://localhost:8080/api/admin/getJobLocation';
-  private deleteurl='http://localhost:8080/api/admin/deleteJobPost';
+  private url = '/api/admin/getAllJobPosts';
+  private detailurl='/api/admin/getJobLocation';
+  private deleteurl='/api/admin/deleteJobPost';
   constructor(private http: HttpClient) { }
   getJobPosts (pageNo: number)
   {

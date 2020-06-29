@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CandidateStatService {
-  private getCandidateStatsURL = 'http://localhost:8080/candidate/mystats';
+  private getCandidateStatsURL = '/candidate/mystats';
   constructor(private http: HttpClient) { }
   
   getCandidateStats(): Observable<any> {

@@ -7,8 +7,8 @@ import { map } from "rxjs/operators";
   providedIn: 'root'
 })
 export class UploadFileService {
-  private uploadImageUrl = 'http://localhost:8080/candidate/uploadProfileImage';
-  private uploadCVUrl = 'http://localhost:8080/candidate/uploadCV';
+  private uploadImageUrl = '/candidate/uploadProfileImage';
+  private uploadCVUrl = '/candidate/uploadCV';
   constructor(private http: HttpClient) { }
   // uploadProfileImage(image: File): Observable<Object> {
   //   return this.http.post(`${this.uploadImageUrl}`, image);

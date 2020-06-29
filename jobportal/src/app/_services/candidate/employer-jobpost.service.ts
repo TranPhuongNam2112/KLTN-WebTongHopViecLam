@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployerJobpostService {
-  private getJobPostByEmployerURL = 'http://localhost:8080/candidate/employerjobposts';
-  private getEmployerbyIdURL = 'http://localhost:8080/home/employers';
+  private getJobPostByEmployerURL = '/candidate/employerjobposts';
+  private getEmployerbyIdURL = 'home/employers';
   constructor(private http: HttpClient) { }
   getJobPostByEmployer(companyname: string, pageNo: number): Observable<any> {
     return this.http.get(`${this.getJobPostByEmployerURL}/${companyname}`+'?pageNo='+pageNo);

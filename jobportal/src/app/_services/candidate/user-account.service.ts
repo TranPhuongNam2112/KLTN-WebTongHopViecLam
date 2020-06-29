@@ -5,14 +5,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserAccountService {
-  private getProfileurl = 'http://localhost:8080/candidate/myprofile';
-  private createExperienceURL='http://localhost:8080/candidate/myprofile/addExperience';
-  private deleteExperienceURL='http://localhost:8080/candidate/myprofile/experience/remove';
+  private getProfileurl = '/candidate/myprofile';
+  private createExperienceURL='/candidate/myprofile/addExperience';
+  private deleteExperienceURL='/candidate/myprofile/experience/remove';
 
-  private createEducationURL='http://localhost:8080/candidate/myprofile/addEducation';
-  private deleteEducationURL='http://localhost:8080/candidate/myprofile/education/remove';
-  private updateProfileURL ='http://localhost:8080/candidate/myprofile';
-  private getJobTypeURL= 'http://localhost:8080/candidate/jobtypes';
+  private createEducationURL='/candidate/myprofile/addEducation';
+  private deleteEducationURL='/candidate/myprofile/education/remove';
+  private updateProfileURL ='/candidate/myprofile';
+  private getJobTypeURL= '/candidate/jobtypes';
   constructor(private http: HttpClient) { }
  
   getJobTypes(): Observable<any> {

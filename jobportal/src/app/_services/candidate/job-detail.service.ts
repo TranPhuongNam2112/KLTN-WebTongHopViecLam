@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JobDetailService {
-  private jobPostDetailURL='http://localhost:8080/candidate/jobposts';
+  private jobPostDetailURL='/candidate/jobposts';
   constructor(private http: HttpClient) { }
   getJobPostDetail(id: number): Observable<any> {
     return this.http.get(`${this.jobPostDetailURL}/${id}`);
